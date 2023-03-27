@@ -1,5 +1,5 @@
 # UPHSD Student Management System
-This project is created as a requirement for our Computer Programming 2 specialized course.<br />
+This project is created as a requirement for our Computer Programming 2 specialized course of Batch 2018-2019.<br />
 This project aimed to help the administrators of University of Perpetual Help System Dalta - Molino Campus,<br />
 to create, read, update, and delete records of the students with ease.<br />
 
