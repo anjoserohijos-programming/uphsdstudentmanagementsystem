@@ -11,12 +11,13 @@ Main Menu,<br />
 View Students,<br />
 View Student Profile,<br />
 Add Student Records,<br />
-Remove Student Records
+Remove Student Records<br />
 
 The technologies used for this project:<br />
 Java<br />
 XAMPP and MySQL<br />
 JDBC Driver and DriverManager<br />
+Eclipse IDE <br />
 
 Developers: <br />
 Anjo Serohijos - Group Leader | Lead Developer <br />
