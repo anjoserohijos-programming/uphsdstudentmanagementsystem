@@ -28,6 +28,9 @@ public class FullView extends JFrame {
 	private JTextField contactTF;
 	private JTextField emailTF;
 	
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -120,15 +123,15 @@ public class FullView extends JFrame {
 		emailTF.setBounds(556, 180, 187, 20);
 		contentPane.add(emailTF);
 		
-		JTextArea txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf = new JTextArea();
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setFont(new Font("Calibri Light", Font.PLAIN, 17));
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setForeground(new Color(255, 255, 255));
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setLineWrap(true);
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setWrapStyleWord(true);
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setOpaque(false);
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setText("Blk 10 Lot 6 Viva Homes Subdivision, Salawag, Dasmari\u00F1as, Cavite");
-		txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf.setBounds(556, 218, 283, 90);
-		contentPane.add(txtrAsdfasdfasdfasdfSdfAsdfasdfasdfsdf);
+		JTextArea homeAddressTF = new JTextArea();
+		homeAddressTF.setFont(new Font("Calibri Light", Font.PLAIN, 17));
+		homeAddressTF.setForeground(new Color(255, 255, 255));
+		homeAddressTF.setLineWrap(true);
+		homeAddressTF.setWrapStyleWord(true);
+		homeAddressTF.setOpaque(false);
+		homeAddressTF.setText("Blk 10 Lot 6 Viva Homes Subdivision, Salawag, Dasmari\u00F1as, Cavite");
+		homeAddressTF.setBounds(556, 218, 283, 90);
+		contentPane.add(homeAddressTF);
 		
 		JLabel lblAddress = new JLabel("Address:");
 		lblAddress.setHorizontalAlignment(SwingConstants.RIGHT);

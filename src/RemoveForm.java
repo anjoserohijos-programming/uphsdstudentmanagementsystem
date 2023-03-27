@@ -102,8 +102,7 @@ public class RemoveForm extends JFrame{
 		JButton btnRemove = new JButton("REMOVE");
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				FullView fv = new FullView();
-				fv.setSize(988,637);
+				
 				int index = ICTtable.getSelectedRow();
 				TableModel model = ICTtable.getModel();
 			
@@ -111,21 +110,18 @@ public class RemoveForm extends JFrame{
 					Connection conn = SQLConnect.ConnectDB();
 					String delete = "DELETE FROM `students_info` where Student_ID= ?";
 					
-					if(strandBox.getSelectedItem().equals("TVL - ICT") && //the mother IF
-							gradeBox.getSelectedItem().equals("11") && 	
-							sectionBox.getSelectedItem().equals("01") && ICTtable.isRowSelected(index)) {
-						
-					
-					String value = ICTtable.getModel().getValueAt(index, 10).toString();
-					System.out.println(ICTtable.getModel().getValueAt(index, 10).toString());
-					PreparedStatement	pst = conn.prepareStatement(delete);
-					pst.setString(ICTtable.getRowCount(), value);
-					pst.executeUpdate();
-					DefaultTableModel modelReset = (DefaultTableModel) ICTtable.getModel();
-					modelReset.setRowCount(0);
-					
-					JOptionPane.showMessageDialog(getContentPane(), "Removed successfully!");
-						
+					if(!strandBox.getSelectedItem().toString().isBlank()  && //the mother IF
+							!gradeBox.getSelectedItem().toString().isBlank() && 	
+							!sectionBox.getSelectedItem().toString().isBlank() && ICTtable.isRowSelected(index)) {
+
+						String value = ICTtable.getModel().getValueAt(index, 9).toString();
+						System.out.println(ICTtable.getModel().getValueAt(index, 9).toString());
+						PreparedStatement	pst = conn.prepareStatement(delete);
+						pst.setString(ICTtable.getRowCount(), value);
+						pst.executeUpdate();
+						DefaultTableModel modelReset = (DefaultTableModel) ICTtable.getModel();
+						modelReset.setRowCount(0);
+						JOptionPane.showMessageDialog(getContentPane(), "Removed successfully!");
 					}
 					else { //else of the mother if
 						JOptionPane.showMessageDialog(getContentPane(), "Select a table first");
