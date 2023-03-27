@@ -4,27 +4,20 @@ This project aimed to help the administrators of University of Perpetual Help Sy
 to create, read, update, and delete records of the students with ease.
 
 The feature and functionalities include:
-Landing Page - 
-Login Form 
-Sign Up Form
-Main Menu
-View Students
-View Student Profile
-Add Student Records
-Remove Student Records
+Landing Page, Login Form, Sign Up Form, Main Menu, View Students, View Student Profile, Add Student Records, Remove Student Records
 
-The technologies used for this project:
-Java
-XAMPP and MySQL
-JDBC Driver and DriverManager
+The technologies used for this project:<br />
+Java<br />
+XAMPP and MySQL<br />
+JDBC Driver and DriverManager<br />
 
-Developers:\n
-Anjo Serohijos - Group Leader | Lead Developer\n
-Matthew Romero - UX/UI Designer\n
-Kevin Christian Rivera - UX/UI Designer\n
-John Brian Salarda - Frontend Developer\n
-Audrey Villafranca - Frontend Developer\n
-Axel John Sebastian - Frontend Developer\n
-Karl Matipo - Backend Developer\n
-Mark Joseph Salem - Backend Developer\n
-Amiel Salao - Backend Developer\n
+Developers: <br />
+Anjo Serohijos - Group Leader | Lead Developer <br />
+Matthew Romero - UX/UI Designer<br />
+Kevin Christian Rivera - UX/UI Designer<br />
+John Brian Salarda - Frontend Developer<br />
+Audrey Villafranca - Frontend Developer<br />
+Axel John Sebastian - Frontend Developer<br />
+Karl Matipo - Backend Developer<br />
+Mark Joseph Salem - Backend Developer<br />
+Amiel Salao - Backend Developer<br />
