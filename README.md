@@ -18,13 +18,13 @@ Java
 XAMPP and MySQL
 JDBC Driver and DriverManager
 
-Developers:
-Anjo Serohijos - Group Leader | Lead Developer
-Matthew Romero - UX/UI Designer
-Kevin Christian Rivera - UX/UI Designer
-John Brian Salarda - Frontend Developer
-Audrey Villafranca - Frontend Developer
-Axel John Sebastian - Frontend Developer
-Karl Matipo - Backend Developer
-Mark Joseph Salem - Backend Developer
-Amiel Salao - Backend Developer
+Developers:\n
+Anjo Serohijos - Group Leader | Lead Developer\n
+Matthew Romero - UX/UI Designer\n
+Kevin Christian Rivera - UX/UI Designer\n
+John Brian Salarda - Frontend Developer\n
+Audrey Villafranca - Frontend Developer\n
+Axel John Sebastian - Frontend Developer\n
+Karl Matipo - Backend Developer\n
+Mark Joseph Salem - Backend Developer\n
+Amiel Salao - Backend Developer\n
