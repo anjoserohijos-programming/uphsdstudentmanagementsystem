@@ -1,10 +1,17 @@
 # UPHSD Student Management System
-This project is created as a requirement for our Computer Programming 2 specialized course.
-This project aimed to help the administrators of University of Perpetual Help System Dalta - Molino Campus,
-to create, read, update, and delete records of the students with ease.
+This project is created as a requirement for our Computer Programming 2 specialized course.<br />
+This project aimed to help the administrators of University of Perpetual Help System Dalta - Molino Campus,<br />
+to create, read, update, and delete records of the students with ease.<br />
 
-The feature and functionalities include:
-Landing Page, Login Form, Sign Up Form, Main Menu, View Students, View Student Profile, Add Student Records, Remove Student Records
+The feature and functionalities include:<br />
+Landing Page,<br />
+Login Form,<br />
+ Sign Up Form,<br />
+Main Menu,<br />
+View Students,<br />
+View Student Profile,<br />
+Add Student Records,<br />
+Remove Student Records
 
 The technologies used for this project:<br />
 Java<br />
