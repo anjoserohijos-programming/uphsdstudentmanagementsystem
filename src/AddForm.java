@@ -23,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
-
 import com.placeholder.PlaceHolder;
 
 public class AddForm extends JFrame {
@@ -42,7 +41,7 @@ public class AddForm extends JFrame {
 	private JTextField adviserTF;
 	private JComboBox<String> strandBox,gradeBox,sectionBox,genderBox;
 	
-	private PlaceHolder pl,pl1,pl2,pl3,pl4,pl5,pl6,pl7,pl8,pl9,pl10,pl11,pl12,pl13,pl14;
+	private PlaceHolder pl1,pl2,pl3,pl4,pl5,pl6,pl7,pl8,pl9,pl10,pl11,pl12,pl13,pl14;
 	private JLabel lblStrand,lblGrade,lblSection,lblAge;
 	private JTextField addressTF;
 	private JTextField contactTF;
@@ -51,12 +50,11 @@ public class AddForm extends JFrame {
 	private JButton backBtn;
 	private Connection conn;
 	private PreparedStatement pst;
-	private ResultSet rs;
 	public String Mother_Name;
-	public JComboBox ageBox;
+	public JComboBox<String> ageBox;
 	
 	private JSpinner ageSpinner;
-	private JComboBox monthBox, dayBox,yearBox;
+	private JComboBox<String> monthBox, dayBox,yearBox;
 	 String s;
 	
 	/**
@@ -81,7 +79,6 @@ public class AddForm extends JFrame {
 	private JLabel lblPicture;
 	private JTextField studentID;
 	
-	@SuppressWarnings("unchecked")
 	public AddForm() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,25 +128,25 @@ public class AddForm extends JFrame {
 		lblBirthDate.setBounds(34, 255, 121, 36);
 		contentPane.add(lblBirthDate);
 		
-		 dayBox = new JComboBox();
+		 dayBox = new JComboBox<String>();
 		dayBox.setBorder(new EmptyBorder(0, 0, 0, 0));
 	
-		dayBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		dayBox.setModel(new DefaultComboBoxModel<String>(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		dayBox.setBounds(303, 254, 40, 37);
 		
 		contentPane.add(dayBox);
 		
-		 yearBox = new JComboBox();
+		 yearBox = new JComboBox<String>();
 		yearBox.setBorder(new EmptyBorder(0, 0, 0, 0));
-		yearBox.setModel(new DefaultComboBoxModel(new String[] {"1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003"}));
+		yearBox.setModel(new DefaultComboBoxModel<String>(new String[] {"1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003"}));
 		yearBox.setBounds(375, 254, 86, 37);
 		contentPane.add(yearBox);
 		
-		 monthBox = new JComboBox();
+		 monthBox = new JComboBox<String>();
 		monthBox.setBorder(new EmptyBorder(0, 0, 0, 0));
 		monthBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				String[] days = new String[] {};				
+							
 				if(monthBox.getSelectedItem().equals("January") ||
 				   monthBox.getSelectedItem().equals("March")	||	
 				   monthBox.getSelectedItem().equals("May")	||	
@@ -158,25 +155,25 @@ public class AddForm extends JFrame {
 				   monthBox.getSelectedItem().equals("December")	
 						
 						) {
-					dayBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));			
+					dayBox.setModel(new DefaultComboBoxModel<String>(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));			
 				}
 				else if( monthBox.getSelectedItem().equals("February")) {
-					dayBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					dayBox.setModel(new DefaultComboBoxModel<String>(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
 				}
 				
 				else {
-					dayBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+					dayBox.setModel(new DefaultComboBoxModel<String>(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
 				}
 				
 			}
 		});
-		monthBox.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May ", "June", "July", "August", "September", "October", "November", "December"}));
+		monthBox.setModel(new DefaultComboBoxModel<String>(new String[] {"January", "February", "March", "April", "May ", "June", "July", "August", "September", "October", "November", "December"}));
 		monthBox.setBounds(104, 254, 155, 37);
 		contentPane.add(monthBox);
 		
-		genderBox = new JComboBox();
+		genderBox = new JComboBox<String>();
 		genderBox.setBorder(new EmptyBorder(0, 0, 0, 0));
-		genderBox.setModel(new DefaultComboBoxModel(new String[] {"Male", "Female"}));
+		genderBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Male", "Female"}));
 		genderBox.setBounds(104, 302, 155, 37);
 		contentPane.add(genderBox);
 		
@@ -240,21 +237,21 @@ public class AddForm extends JFrame {
 		adviserTF.setBounds(34, 564, 315, 37);
 		contentPane.add(adviserTF);
 		
-		strandBox = new JComboBox();
+		strandBox = new JComboBox<String>();
 		strandBox.setBorder(new EmptyBorder(0, 0, 0, 0));
-		strandBox.setModel(new DefaultComboBoxModel(new String[] {"TVL - ICT", "TVL - HE", "STEM", "HUMMS", "ABM", "GAS", "AD"}));
+		strandBox.setModel(new DefaultComboBoxModel<String>(new String[] {"TVL - ICT", "TVL - HE", "STEM", "HUMMS", "ABM", "GAS", "AD"}));
 		strandBox.setBounds(361, 564, 114, 40);
 		contentPane.add(strandBox);
 		
-		gradeBox = new JComboBox();
+		gradeBox = new JComboBox<String>();
 		gradeBox.setBorder(new EmptyBorder(0, 0, 0, 0));
-		gradeBox.setModel(new DefaultComboBoxModel(new String[] {"11", "12"}));
+		gradeBox.setModel(new DefaultComboBoxModel<String>(new String[] {"11", "12"}));
 		gradeBox.setBounds(496, 564, 77, 40);
 		contentPane.add(gradeBox);
 		
-		sectionBox = new JComboBox();
+		sectionBox = new JComboBox<String>();
 		sectionBox.setBorder(new EmptyBorder(0, 0, 0, 0));
-		sectionBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07"}));
+		sectionBox.setModel(new DefaultComboBoxModel<String>(new String[] {"01", "02", "03", "04", "05", "06", "07"}));
 		sectionBox.setBounds(583, 564, 77, 40);
 		contentPane.add(sectionBox);
 		
@@ -286,7 +283,7 @@ public class AddForm extends JFrame {
 		addressTF.setColumns(10);
 		addressTF.setBounds(249, 369, 411, 37);
 		contentPane.add(addressTF);
-		pl = new PlaceHolder(lastnameTF, new Color(128,0,0), getForeground(), "Last Name", true, "15", 16);
+		new PlaceHolder(lastnameTF, new Color(128,0,0), getForeground(), "Last Name", true, "15", 16);
 		pl1 = new PlaceHolder(firstnameTF, new Color(128,0,0), getForeground(), "First Name", true, "15", 16);
 		pl2 = new PlaceHolder(midnameTF, new Color(128,0,0), getForeground(), "Middle Name", true, "15", 16);
 		pl4 = new PlaceHolder(addressTF, new Color(128,0,0), getForeground(), "Address", true, "15", 16);
@@ -304,19 +301,13 @@ public class AddForm extends JFrame {
 		resetBtn.setBounds(720, 500, 104, 46);
 		contentPane.add(resetBtn);
 		
-		NumberFormat format =  NumberFormat.getInstance();
-		
 		submitBtn = new JButton("Submit");
 		submitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					 conn = SQLConnect.ConnectDB();
-					
-					
+					conn = SQLConnect.ConnectDB();
 					if(lastnameTF.getText() != ""&& firstnameTF.getText() != "" && studentID.getText().length() == 7 
 							&& !ageSpinner.getValue().equals(0) && strandBox.getSelectedItem() != "" && gradeBox.getSelectedItem() != "" && !sectionBox.equals("")) {
-					
-						
 						insertData(
 								firstnameTF.getText(),
 								lastnameTF.getText(),
@@ -341,7 +332,7 @@ public class AddForm extends JFrame {
 					}
 
 				} catch (SQLException  e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 			}
