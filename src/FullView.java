@@ -1,10 +1,9 @@
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -12,8 +11,6 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-import java.awt.Rectangle;
 
 public class FullView extends JFrame {
 
@@ -27,11 +24,6 @@ public class FullView extends JFrame {
 	private JTextField studentIDTF;
 	private JTextField contactTF;
 	private JTextField emailTF;
-	
-	
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
