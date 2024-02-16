@@ -1,11 +1,9 @@
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -32,18 +30,18 @@ public class ICTframe extends JFrame{
 		setVisible(true);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
-		JComboBox strandBox = new JComboBox();
-		strandBox.setModel(new DefaultComboBoxModel(new String[] {"TVL - ICT", "TVL - HE", "STEM", "ABM", "HUMMS", "GAS", "AD"}));
+		JComboBox<String> strandBox = new JComboBox<String>();
+		strandBox.setModel(new DefaultComboBoxModel<String>(new String[] {"TVL - ICT", "TVL - HE", "STEM", "ABM", "HUMMS", "GAS", "AD"}));
 		strandBox.setBounds(95, 121, 148, 20);
 		getContentPane().add(strandBox);
 		
-		JComboBox sectionBox = new JComboBox();
-		sectionBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02"}));
+		JComboBox<String> sectionBox = new JComboBox<String>();
+		sectionBox.setModel(new DefaultComboBoxModel<String>(new String[] {"01", "02"}));
 		sectionBox.setBounds(692, 121, 59, 20);
 		getContentPane().add(sectionBox);
 		
-		JComboBox gradeBox = new JComboBox();
-		gradeBox.setModel(new DefaultComboBoxModel(new String[] {"11", "12"}));
+		JComboBox<String> gradeBox = new JComboBox<String>();
+		gradeBox.setModel(new DefaultComboBoxModel<String>(new String[] {"11", "12"}));
 		gradeBox.setBounds(453, 121, 53, 20);
 		getContentPane().add(gradeBox);
 		
@@ -55,7 +53,7 @@ public class ICTframe extends JFrame{
 					Connection conn = SQLConnect.ConnectDB();
 					String select = "SELECT * FROM `students_info`";
 					
-					if(!strandBox.getSelectedItem().toString().isBlank() && !gradeBox.getSelectedItem().toString().isBlank() && !sectionBox.getSelectedItem().toString().isBlank()) {
+					if(!strandBox.getSelectedItem().toString().isEmpty() && !gradeBox.getSelectedItem().toString().isEmpty() && !sectionBox.getSelectedItem().toString().isEmpty()) {
 						PreparedStatement pst = conn.prepareStatement(select);
 						ResultSet rs = pst.executeQuery();
 						DefaultTableModel tableModel = (DefaultTableModel) ICTtable.getModel();
@@ -113,15 +111,7 @@ public class ICTframe extends JFrame{
 					String Age = model.getValueAt(index,3).toString(); //
 					String Birth_Date = model.getValueAt(index,4).toString(); //
 					String Gender = model.getValueAt(index,5).toString(); //
-					String Email_Address = model.getValueAt(index,6).toString();
-					String Contact = model.getValueAt(index,7).toString(); //
-					String Student_ID = model.getValueAt(index,8).toString(); //
-					String Mother_Name = model.getValueAt(index,9).toString(); //
-					String Father_Name = model.getValueAt(index,10).toString(); //
-					String Guardian_Name = model.getValueAt(index,11).toString(); //
-					String Guardian_Number = model.getValueAt(index,12).toString(); //
-					String Adviser = model.getValueAt(index,13).toString(); //
-					String Section = model.getValueAt(index,14).toString(); //
+					
 		
 				fv.setVisible(true);
 				
