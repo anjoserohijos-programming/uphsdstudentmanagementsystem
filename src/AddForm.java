@@ -6,10 +6,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.NumberFormat;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,7 +23,6 @@ import javax.swing.border.MatteBorder;
 import com.placeholder.PlaceHolder;
 
 public class AddForm extends JFrame {
-
 	private JPanel contentPane;
 	private JTextField lastnameTF;
 	private JTextField firstnameTF;
@@ -40,7 +36,6 @@ public class AddForm extends JFrame {
 	private JTextField guardianName;
 	private JTextField adviserTF;
 	private JComboBox<String> strandBox,gradeBox,sectionBox,genderBox;
-	
 	private PlaceHolder pl1,pl2,pl3,pl4,pl5,pl6,pl7,pl8,pl9,pl10,pl11,pl12,pl13,pl14;
 	private JLabel lblStrand,lblGrade,lblSection,lblAge;
 	private JTextField addressTF;
@@ -167,16 +162,15 @@ public class AddForm extends JFrame {
 				
 			}
 		});
+
 		monthBox.setModel(new DefaultComboBoxModel<String>(new String[] {"January", "February", "March", "April", "May ", "June", "July", "August", "September", "October", "November", "December"}));
 		monthBox.setBounds(104, 254, 155, 37);
 		contentPane.add(monthBox);
-		
 		genderBox = new JComboBox<String>();
 		genderBox.setBorder(new EmptyBorder(0, 0, 0, 0));
 		genderBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Male", "Female"}));
 		genderBox.setBounds(104, 302, 155, 37);
 		contentPane.add(genderBox);
-		
 		emailTF = new JTextField();
 		emailTF.setOpaque(false);
 		emailTF.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(128, 0, 0)));
@@ -300,7 +294,7 @@ public class AddForm extends JFrame {
 		resetBtn = new JButton("Reset");
 		resetBtn.setBounds(720, 500, 104, 46);
 		contentPane.add(resetBtn);
-		
+
 		submitBtn = new JButton("Submit");
 		submitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

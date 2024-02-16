@@ -3,6 +3,7 @@ import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Insets;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -39,11 +40,11 @@ public class Register extends JFrame {
 	private JPasswordField confirmpassTF;
 	private JButton ResetBtn;
 	private JButton loginBtn;
-	private JTextField fnTF;
+	private JTextField firstNameTextField;
 	private JTextField lnTF;
-	private PlaceHolder pl,pl2,pl3,pl4,pl5,pl6,pl7,pl8;
+	private List<PlaceHolder> placeholder;
 	private Connection conn;
-	private PreparedStatement pst;
+	private PreparedStatement preparedStatement;
 	private JLabel lblNewLabel;
 	private JLabel label;
 	private JLabel lblTime;
@@ -69,11 +70,22 @@ public class Register extends JFrame {
 		});
 	}
 
+
 	/**
 	 * Create the frame.
 	 */
 	public Register() {
-		
+
+		//initialize placeholders
+		placeholder.add(new PlaceHolder(firstNameTextField, new Color(128,0,0), getForeground(), "First Name", true, "15", 16));
+		placeholder.add(new PlaceHolder(lnTF, new Color(128,0,0), getForeground(), "Last Name", true, "15", 16));
+		placeholder.add(new PlaceHolder(idTF, new Color(128,0,0), getForeground(), "Enter your ID number", true, "15", 16));
+		placeholder.add(new PlaceHolder(emailTF, new Color(128,0,0), getForeground(), "Enter your email address", true, "15", 16));
+		placeholder.add(new PlaceHolder(usernameTF, new Color(128,0,0), getForeground(), "Enter your username", true, "15", 16));
+		placeholder.add(new PlaceHolder(contactTF, new Color(128,0,0), getForeground(), "Enter your contact number", true, "15", 16));
+		placeholder.add(new PlaceHolder(passwordTF, new Color(128,0,0), getForeground(), "Enter password", true, "15", 16));
+		placeholder.add(new PlaceHolder(confirmpassTF, new Color(128,0,0), getForeground(), "Confirm Password", true, "15", 16));
+
 		setTitle("Register Form");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1250, 700);
@@ -92,22 +104,22 @@ public class Register extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				if(fnTF.getText() != null && lnTF.getText() != null && contactTF.getText() != null) {
+				if(firstNameTextField.getText() != null && lnTF.getText() != null && contactTF.getText() != null) {
 					
 					try {
 						
 						conn = SQLConnect.ConnectDB();
 						
 						String insertsql = "INSERT INTO admin_info (First_name, Last_name, employee_ID, email_address, contact_number, username, password) VALUES (?, ?, ?, ?, ?, ?, ?);";
-						pst = conn.prepareStatement(insertsql);
-						pst.setString(1, fnTF.getText());
-						pst.setString(2, lnTF.getText());
-						pst.setString(3, idTF.getText());
-						pst.setString(4, emailTF.getText());
-						pst.setString(5, contactTF.getText());
-						pst.setString(6, usernameTF.getText());
-						pst.setString(7, passwordTF.getText());
-						pst.execute();
+						preparedStatement = conn.prepareStatement(insertsql);
+						preparedStatement.setString(1, firstNameTextField.getText());
+						preparedStatement.setString(2, lnTF.getText());
+						preparedStatement.setString(3, idTF.getText());
+						preparedStatement.setString(4, emailTF.getText());
+						preparedStatement.setString(5, contactTF.getText());
+						preparedStatement.setString(6, usernameTF.getText());
+						preparedStatement.setString(7, passwordTF.getText());
+						preparedStatement.execute();
 						
 						JOptionPane.showMessageDialog(RegisterBtn,"Account successfully registered.");
 					} catch (SQLException e) {
@@ -116,38 +128,37 @@ public class Register extends JFrame {
 						JOptionPane.showMessageDialog(RegisterBtn, "Can't connect to Database");
 					}
 				}
+				
 				else {
 					JOptionPane.showMessageDialog(RegisterBtn, "You have missing inputs.");
 				}
 			}
 		});
-		
+
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Register.class.getResource("/source/UPHLOGO.png")));
 		lblNewLabel.setBounds(84, 163, 218, 268);
 		contentPane.add(lblNewLabel);
 		RegisterBtn.setBounds(834, 498, 105, 47);
 		contentPane.add(RegisterBtn);
-		
 		contactTF = new JTextField();
 		contactTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		contactTF.setColumns(10);
 		contactTF.setBounds(657, 273, 466, 44);
-		pl6 = new PlaceHolder(contactTF, new Color(128,0,0), getForeground(), "Enter your contact number", true, "15", 16);
 		contentPane.add(contactTF);
 		
 		usernameTF = new JTextField();
 		usernameTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		usernameTF.setColumns(10);
 		usernameTF.setBounds(657, 328, 466, 44);
-		pl5 = new PlaceHolder(usernameTF, new Color(128,0,0), getForeground(), "Enter your username", true, "15", 16);
+		
 		contentPane.add(usernameTF);
 		
 		emailTF = new JTextField();
 		emailTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		emailTF.setColumns(10);
 		emailTF.setBounds(657, 218, 466, 44);
-		pl4 = new PlaceHolder(emailTF, new Color(128,0,0), getForeground(), "Enter your email address", true, "15", 16);
+		
 		contentPane.add(emailTF);
 		
 		idTF = new JTextField();
@@ -156,19 +167,18 @@ public class Register extends JFrame {
 		idTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		idTF.setColumns(10);
 		idTF.setBounds(657, 163, 294, 44);
-		pl3 = new PlaceHolder(idTF, new Color(128,0,0), getForeground(), "Enter your ID number", true, "15", 16);
+		
 		contentPane.add(idTF);
 		
 		passwordTF = new JPasswordField();
 		passwordTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		passwordTF.setBounds(657, 383, 466, 44);
-		pl7= new PlaceHolder(passwordTF, new Color(128,0,0), getForeground(), "password", true, "15", 16);
+		
 		contentPane.add(passwordTF);
 		
 		confirmpassTF = new JPasswordField();
 		confirmpassTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		confirmpassTF.setBounds(657, 438, 466, 44);
-		pl8 = new PlaceHolder(confirmpassTF, new Color(128,0,0), getForeground(), "password", true, "15", 16);
 		contentPane.add(confirmpassTF);
 		
 		
@@ -234,18 +244,16 @@ public class Register extends JFrame {
 		contentPane.add(lblNoteThisIs);
 		contentPane.add(btnGo);
 		
-		fnTF = new JTextField();
-		fnTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
-		fnTF.setColumns(10);
-		fnTF.setBounds(657, 102, 208, 44);
-		pl = new PlaceHolder(fnTF, new Color(128,0,0), getForeground(), "First Name", true, "15", 16);
-		contentPane.add(fnTF);
+		firstNameTextField = new JTextField();
+		firstNameTextField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
+		firstNameTextField.setColumns(10);
+		firstNameTextField.setBounds(657, 102, 208, 44);
+		contentPane.add(firstNameTextField);
 		
 		lnTF = new JTextField();
 		lnTF.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(128, 0, 0)));
 		lnTF.setColumns(10);
 		lnTF.setBounds(886, 102, 237, 44);
-		 pl2 = new PlaceHolder(lnTF, new Color(128,0,0), getForeground(), "Last Name", true, "15", 16);
 		contentPane.add(lnTF);
 		
 		ResetBtn = new JButton("RESET");
@@ -260,7 +268,7 @@ public class Register extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				
-				fnTF.setText(null);
+				firstNameTextField.setText(null);
 				lnTF.setText(null);
 				idTF.setText(null);
 				emailTF.setText(null);
@@ -343,7 +351,7 @@ public class Register extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		
-		fnTF.setOpaque(false);
+		firstNameTextField.setOpaque(false);
 		lnTF.setOpaque(false);
 		idTF.setOpaque(false);
 		emailTF.setOpaque(false);

@@ -111,7 +111,15 @@ public class ICTframe extends JFrame{
 					String Age = model.getValueAt(index,3).toString(); //
 					String Birth_Date = model.getValueAt(index,4).toString(); //
 					String Gender = model.getValueAt(index,5).toString(); //
-					
+					// String Email_Address = model.getValueAt(index,6).toString();
+					// String Contact = model.getValueAt(index,7).toString(); //
+					// String Student_ID = model.getValueAt(index,8).toString(); //
+					// String Mother_Name = model.getValueAt(index,9).toString(); //
+					// String Father_Name = model.getValueAt(index,10).toString(); //
+					// String Guardian_Name = model.getValueAt(index,11).toString(); //
+					// String Guardian_Number = model.getValueAt(index,12).toString(); //
+					// String Adviser = model.getValueAt(index,13).toString(); //
+					// String Section = model.getValueAt(index,14).toString(); //
 		
 				fv.setVisible(true);
 				
