@@ -1,14 +1,9 @@
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +14,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,10 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.placeholder.PlaceHolder;
-import javax.swing.JFormattedTextField;
 
 public class AddForm extends JFrame {
 
@@ -48,7 +40,7 @@ public class AddForm extends JFrame {
 	private JTextField guardianContactTF;
 	private JTextField guardianName;
 	private JTextField adviserTF;
-	private JComboBox strandBox,gradeBox,sectionBox,genderBox;
+	private JComboBox<String> strandBox,gradeBox,sectionBox,genderBox;
 	
 	private PlaceHolder pl,pl1,pl2,pl3,pl4,pl5,pl6,pl7,pl8,pl9,pl10,pl11,pl12,pl13,pl14;
 	private JLabel lblStrand,lblGrade,lblSection,lblAge;
